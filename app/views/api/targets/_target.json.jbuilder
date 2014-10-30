@@ -1,0 +1,1 @@
+json.extract! target, :id, :name, :is_completed, :ninja_id

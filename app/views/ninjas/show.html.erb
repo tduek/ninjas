@@ -1,0 +1,10 @@
+<h1>Ninjas#show</h1>
+
+<%= debug @ninja %>
+
+<h2>Targets</h2>
+<ul>
+<% @ninja.targets.each do |target| %>
+  <%= render target %>
+<% end %>
+</ul>

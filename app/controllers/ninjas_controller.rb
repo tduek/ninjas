@@ -1,9 +1,13 @@
 class NinjasController < ApplicationController
-  before_action :require_signed_in!, :only => [:index]
+  # before_action :require_signed_in!, :only => [:index]
   before_action :require_signed_out!, :only => [:create, :new]
 
   def index
     @ninjas = Ninja.all
+  end
+
+  def show
+    @ninja = Ninja.find(params[:id])
   end
 
   def new

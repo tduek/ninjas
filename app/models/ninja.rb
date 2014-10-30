@@ -1,6 +1,11 @@
 class Ninja < ActiveRecord::Base
-  attr_reader :password
 
+  include PgSearch
+  multisearchable against: :email
+
+  has_many :targets
+
+  attr_reader :password
   validates :password_digest, :presence => true
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :session_token, :presence => true, :uniqueness => true

@@ -3,7 +3,7 @@
 <ul>
   <% @ninjas.each do |ninja| %>
 
-  <li><%= ninja.email %></li>
+  <li><%= link_to ninja.email, ninja %></li>
 
   <% end %>
 </ul>

@@ -22,17 +22,25 @@
 <% end %>
 
 <hr>
+<main>
+  <% if flash[:errors] %>
+  <h3>Please fix the following errors:</h3>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+    <% end %>
 
-<% if flash[:errors] %>
-<h3>Please fix the following errors:</h3>
-<ul>
-  <% flash[:errors].each do |error| %>
-  <li><%= error %></li>
+    <% flash.each do |type, msg| %>
+    <% next if type == :errors %>
+    <li>
+      <strong><%= type %>:</strong><%= msg %>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
 
-<%= yield %>
+  <%= yield %>
+</main>
 
 </body>
 </html>

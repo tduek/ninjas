@@ -1,0 +1,12 @@
+<h1>Ninjas#index (Backbone)</h1>
+
+<a href="#/search">Search</a>
+
+<ul>
+  <% ninjas.each(function (ninja) { %>
+
+  <li><%= ninja.get('email') %></li>
+
+  <% }); %>
+
+</ul>

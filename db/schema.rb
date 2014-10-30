@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028212249) do
+ActiveRecord::Schema.define(version: 20141030184527) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ninjas", force: true do |t|
     t.string   "email"
@@ -21,6 +24,22 @@ ActiveRecord::Schema.define(version: 20141028212249) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+  end
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "targets", force: true do |t|
+    t.string   "name"
+    t.integer  "ninja_id"
+    t.boolean  "is_completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
